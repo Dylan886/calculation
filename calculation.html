@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        #TextArea1
+        {
+            width: 397px;
+            height: 38px;
+        }
+        .style1
+        {
+            width: 99px;
+        }
+        #Button1
+        {
+            height: 50px;
+            width: 89px;
+        }
+    </style>
+    <script language="javascript" type="text/javascript">
+// <![CDATA[
+        function Button1_onclick(btn) {
+        switch(btn.value){
+            case "+":
+            case "-":
+            case "*":
+            case "/":
+                str0 = TextArea1.value.charAt(0);
+                str = TextArea1.value.charAt(TextArea1.value.length - 1);
+                if (str == "+" || str == "-" || str == "*" || str == "/") {
+                    TextArea1.innerText = TextArea1.value.substring(0, TextArea1.value.length - 1) + btn.value;
+                } else if (str0 == "") {
+                    TextArea1.innerText = "0" + btn.value;
+                } else {
+                    TextArea1.innerText = TextArea1.value + btn.value;
+                }
+                break;
+            case "submit":
+                str = TextArea1.value.charAt(TextArea1.value.length - 1);
+                if (str == "+" || str == "-" || str == "*" || str == "/" || str == "") {
+                    alert("请重新输入");
+                }else {
+                    TextArea1.innerText = eval(TextArea1.value);
+                }
+                break;
+            case "reset":
+                TextArea1.innerText = "";
+                break;
+            default:
+                TextArea1.innerText = TextArea1.value + btn.value;
+                break;
+            }
+        }
+
+// ]]>
+    </script>
+</head>
+<body>
+
+    <div style="border: 4px ridge #FFFFFF; height: 386px; width: 403px; margin-left:25% ">
+        <textarea id="TextArea1" rows="" cols="" name="S1" 
+            style="margin-top: 10px; font-size: 20px; text-align: center"></textarea>
+        <table style="width: 100%; height: 325px; margin-top: 14px;">
+            <tr>
+                <td class="style1">
+                    <input id="Button1" type="button" value="1" onclick="return Button1_onclick(this)" /></td>
+                <td>
+                    <input id="Button1" type="button" value="2" onclick="return Button1_onclick(this)" /></td>
+                <td>
+                    <input id="Button1" type="button" value="3" onclick="return Button1_onclick(this)" /></td>
+                <td>
+                    <input id="Button1" type="button" value="+" style="font-size: 20px" onclick="return Button1_onclick(this)" /></td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    <input id="Button1" type="button" value="4" onclick="return Button1_onclick(this)" /></td>
+                <td>
+                    <input id="Button1" type="button" value="5" onclick="return Button1_onclick(this)" /></td>
+                <td>
+                    <input id="Button1" type="button" value="6" onclick="return Button1_onclick(this)" /></td>
+                <td>
+                    <input id="Button1" type="button" value="-" onclick="return Button1_onclick(this)" /></td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    <input id="Button1" type="button" value="7" onclick="return Button1_onclick(this)" /></td>
+                <td>
+                    <input id="Button1" type="button" value="8" onclick="return Button1_onclick(this)" /></td>
+                <td>
+                    <input id="Button1" type="button" value="9" onclick="return Button1_onclick(this)" /></td>
+                <td>
+                    <input id="Button1" type="button" value="*" onclick="return Button1_onclick(this)" /></td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    <input id="Button1" type="button" value="0" onclick="return Button1_onclick(this)"onclick="return Button1_onclick(this)" /></td>
+                <td>
+                    <input id="Button1" type="button" value="/" onclick="return Button1_onclick(this)"onclick="return Button1_onclick(this)" /></td>
+                <td>
+                    <input id="Button1" type="button" value="submit" onclick="return Button1_onclick(this)" /></td>
+                <td>
+                    <input id="Button1" type="button" value="reset"  onclick="return Button1_onclick(this)" /></td>
+            </tr>
+        </table>
+    &nbsp;</div>
+
+</body>
+</html>
