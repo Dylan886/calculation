@@ -5,7 +5,7 @@
     <style type="text/css">
         #TextArea1
         {
-            width: 397px;
+            width: 368px;
             height: 38px;
         }
         .style1
@@ -21,46 +21,48 @@
     <script language="javascript" type="text/javascript">
 // <![CDATA[
         function Button1_onclick(btn) {
-        switch(btn.value){
-            case "+":
-            case "-":
-            case "*":
-            case "/":
-                str0 = TextArea1.value.charAt(0);
-                str = TextArea1.value.charAt(TextArea1.value.length - 1);
-                if (str == "+" || str == "-" || str == "*" || str == "/") {
-                    TextArea1.innerText = TextArea1.value.substring(0, TextArea1.value.length - 1) + btn.value;
-                } else if (str0 == "") {
-                    TextArea1.innerText = "0" + btn.value;
-                } else {
+            switch (btn.value) {
+                case "+":
+                case "-":
+                case "*":
+                case "/":
+                    str0 = TextArea1.value.charAt(0);
+                    str = TextArea1.value.charAt(TextArea1.value.length - 1);
+                    if (str == "+" || str == "-" || str == "*" || str == "/") {
+                        TextArea1.innerText = TextArea1.value.substring(0, TextArea1.value.length - 1) + btn.value;
+                    } else if (str0 == "") {
+                        TextArea1.innerText = "0" + btn.value;
+                    } else {
+                        TextArea1.innerText = TextArea1.value + btn.value;
+                    }
+                    break;
+                case "submit":
+                    str = TextArea1.value.charAt(TextArea1.value.length - 1);
+                    str0 = TextArea1.value.charAt(TextArea1.value.length - 2);
+                    if (str == "+" || str == "-" || str == "*" || str == "/" || str == "") {
+                        alert("请重新输入");
+                    } else if (str == "0" && str0 == "/") {
+                        TextArea1.innerText = "除数不能为零";
+                    } else {
+                        TextArea1.innerText = eval(TextArea1.value);
+                    }
+                    break;
+                case "reset":
+                    TextArea1.innerText = "";
+                    break;
+                default:
                     TextArea1.innerText = TextArea1.value + btn.value;
-                }
-                break;
-            case "submit":
-                str = TextArea1.value.charAt(TextArea1.value.length - 1);
-                if (str == "+" || str == "-" || str == "*" || str == "/" || str == "") {
-                    alert("请重新输入");
-                }else {
-                    TextArea1.innerText = eval(TextArea1.value);
-                }
-                break;
-            case "reset":
-                TextArea1.innerText = "";
-                break;
-            default:
-                TextArea1.innerText = TextArea1.value + btn.value;
-                break;
+                    break;
             }
         }
-
 // ]]>
     </script>
 </head>
 <body>
 
-    <div style="border: 4px ridge #FFFFFF; height: 386px; width: 403px; margin-left:25% ">
-        <textarea id="TextArea1" rows="" cols="" name="S1" 
-            style="margin-top: 10px; font-size: 20px; text-align: center"></textarea>
+    <div style="border: 4px ridge #FFFFFF; height: 386px; width: 403px;margin-left:5%">
+        <textarea id="TextArea1" rows="" name="S1" 
+            style="margin-top: 10px; font-size: 20px; text-align: center" readonly="readonly"></textarea>
         <table style="width: 100%; height: 325px; margin-top: 14px;">
             <tr>
                 <td class="style1">
