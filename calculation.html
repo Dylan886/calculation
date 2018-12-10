@@ -36,7 +36,7 @@
                         TextArea1.innerText = TextArea1.value + btn.value;
                     }
                     break;
-                case "submit":
+                case "=":
                     str = TextArea1.value.charAt(TextArea1.value.length - 1);
                     str0 = TextArea1.value.charAt(TextArea1.value.length - 2);
                     if (str == "+" || str == "-" || str == "*" || str == "/" || str == "") {
@@ -47,7 +47,7 @@
                         TextArea1.innerText = eval(TextArea1.value);
                     }
                     break;
-                case "reset":
+                case "c":
                     TextArea1.innerText = "";
                     break;
                 default:
